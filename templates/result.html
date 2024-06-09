@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001F3F; /* Warna biru navy */
+            color: #FFFFFF; /* Warna teks putih */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #39CCCC; /* Warna biru cyan */
+            border-radius: 5px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Prediksi</h1>
+        <div class="result">
+            <p>User ID: <strong>{{ user_id }}</strong></p>
+            <p>Product ID: <strong>{{ product_id }}</strong></p>
+            <p>Rating Prediction: <strong>{{ rating_prediction }}</strong></p>
+            <p>
+                {% if rating_prediction == 2 %}
+                    Produk ini sangat direkomendasikan.
+                {% elif rating_prediction == 1 %}
+                    Produk ini cukup bagus, tapi saya tidak terlalu merekomendasikannya.
+                {% elif rating_prediction == 0 %}
+                    Produk ini tidak direkomendasikan.
+                {% else %}
+                    Tidak ada rekomendasi yang tersedia.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
